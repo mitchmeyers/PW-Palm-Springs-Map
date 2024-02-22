@@ -1,15 +1,36 @@
+#outer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Outer background color */
+    padding-bottom: 190px; /* Space between outer wrapper and map wrapper */
+    padding-right: 20px;
+    padding-left: 20px;
+    max-width: 940px; /* Adjust based on your design, should be wider than map-wrapper */
+    margin: auto; /* Center the outer wrapper */
+}
+
+#map-wrapper {
+    background-color: #fff; /* White background for the map wrapper */
+    padding: 10px; /* Adjust the padding as necessary */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for map wrapper */
+    border-radius: 25px; /* Rounded corners for map wrapper */
+    max-width: 900px; /* Adjust based on your design */
+}
+
 #map-container {
     position: relative;
     width: 100%;
-    max-width: 100%;
-    margin: auto;
-    overflow: visible; /* Adjust this as necessary */
-    border-radius: 15px;
+    max-width: 900px; /* This width plus padding of #map-wrapper gives the total outer width */
+    overflow: visible;
+    border-radius: 25px; /* If you want the map corners to be rounded as well */
 }
 
 #map-background {
+    position: relative;
     width: 100%;
     height: auto;
+    border-radius: 15px;
 }
 
 .icon {
@@ -243,7 +264,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 1023px) {
+@media (max-width: 900px) {
     .icon img {
         width: 50px; /* Consistent adjustment for better fit on smaller screens */
     }
