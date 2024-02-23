@@ -263,27 +263,22 @@
     transform: scale(1.7); /* Ensures the wrapper fits the scaled image */
 }
 
-/* Adjust icon sizes and positions for mobile */
+/* Responsive adjustments */
 @media (max-width: 900px) {
     .icon img {
-        width: 25px; /* Smaller size for mobile */
+        width: 50px; /* Consistent adjustment for better fit on smaller screens */
     }
-
-    /* Adjust icon positions on mobile */
-    /* Example for adjusting #icon1, repeat for other icons with their specific adjustments */
-    #icon1 {
-        top: calc(25% - 10px); /* Adjust top value as needed */
-        left: calc(39% - 10px); /* Adjust left value as needed */
-    }
-
-    /* Continue adjustments for other icons here */
 
     .tooltip {
-        font-size: 12px; /* Adjust font size for better readability */
-        width: 100%; /* Optional: Adjust width of tooltips on smaller screens */
+        /* Remove width adjustment to keep the tooltip at 200px width */
+        font-size: 14px; /* Consistently increase font size for better readability */
+        /* Keep positioning and padding styles unchanged */
     }
 
     .tooltip img {
-        height: 100%; /* Adjust height for mobile */
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
     }
 }
