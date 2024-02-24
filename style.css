@@ -196,8 +196,8 @@ body, html {
 
 #icon8 {
     position: absolute;
-    top: 34%;
-    left: 82%;
+    top: 32%;
+    left: 69%;
     width: 100px;
     height: auto;
     transform: translate(-50%, -50%);
@@ -242,7 +242,7 @@ body, html {
     position: absolute;
     top: 55%;
     left: 13%;
-    width: 116px;
+    width: 135px;
     height: auto;
     transform: translate(-50%, -50%);
 }
@@ -286,7 +286,7 @@ body, html {
     position: absolute;
     top: 15%;
     left: 25%;
-    width: 80px;
+    width: 65px;
     height: auto;
     transform: translate(-50%, -50%);
 }
