@@ -1,284 +1,336 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; /* Ensure padding and borders are included in the element's total width and height */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit; /* Inherits box-sizing from html */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px; /* Reduced padding for smaller screens */
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
 #outer-wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: #fff; /* Outer background color */
-    padding-bottom: 190px; /* Space between outer wrapper and map wrapper */
-    padding-right: 20px;
-    padding-left: 20px;
-    max-width: 940px; /* Adjust based on your design, should be wider than map-wrapper */
-    margin: auto; /* Center the outer wrapper */
+    align-items: flex-start;
+    background-color: #fff;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 #map-wrapper {
-    background-color: #fff; /* White background for the map wrapper */
-    padding: 10px; /* Adjust the padding as necessary */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for map wrapper */
-    border-radius: 25px; /* Rounded corners for map wrapper */
-    max-width: 900px; /* Adjust based on your design */
+    flex: 1 1 60%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    height: auto;
 }
 
 #map-container {
     position: relative;
     width: 100%;
-    max-width: 900px; /* This width plus padding of #map-wrapper gives the total outer width */
-    overflow: visible;
-    border-radius: 25px; /* If you want the map corners to be rounded as well */
+    height: auto; /* Make sure this container has a defined height either through content or explicitly */
+    object-fit: cover;
+    border-radius: 15px;
 }
 
-#map-background {
-    position: relative;
+.right-side-container {
+    flex: 1 1 30%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: auto;
+    height: auto; /* Adjust based on dynamic content height */
+    justify-content: space-between;
+}
+
+.tooltip-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.description-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: scroll;
+}
+
+.description-text {
+    margin: 10px;
+    text-align: left;
+}
+
+.image-preview {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+#tooltip-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 15px;
 }
 
 .icon {
     position: absolute;
-    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
-.icon img {
-    width: 70px; /* Default icon size */
-}
+/* PacWesty Garage */
 
-/* Tooltip styles */
-.tooltip {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px; /* Maintained default width */
-    background-color: #fff;
-    border: 1px solid #ebebeb;
-    padding: 10px;
-    z-index: 10;
-    border-radius: 10px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px; /* Default font size */
-}
-
-/* Ensuring tooltip images fill the tooltip box */
-.tooltip img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.icon:hover .tooltip {
-    display: block;
-}
-/* PW Hub */
 #icon1 {
-    top: 25%; 
-    left: 39%;
+    position: absolute;
+    top: 29%;
+    left: 42%;
+    width: 75px;
+    height: auto;
+    transform: translate(-50%, -50%); /* Center the icon based on its position */
 }
-/* JT National Park */
+
+/* Joshua Tree */
+
 #icon2 {
-    top: 10%;
-    left: 69%;
-}
-/* Tramway */
-#icon3 {
-    top: 43%; 
-    left: 23%;
-}
-/* Dino */
-#icon4 {
-    top: 59%; 
-    left: 23%;
-}
-/* Coachella */
-#icon5 {
-    top: 73%; 
-    left: 72%;
-}
-/* Doors */
-#icon6 {
-    top: 45%; 
-    left: 41%;
-}
-/* Downtown */
-#icon7 {
-    top: 60%; 
-    left: 38%;
-}
-/* Grand Canyon */
-#icon8 {
-    top: 30%;
-    left: 73%;
-}
-/* Indian Canyon */
-#icon9 {
-    top: 77%; 
-    left: 11%;
-}
-/* Pioneer Town */
-#icon10 {
-    top: 17%;
-    left: 51%;
-}
-/* Botanical Gardens */
-#icon11 {
-    top: 74%; 
-    left: 38%;
-}
-/* Mountain */
-#icon12 {
-    top: 53%; 
-    left: 8%;
-}
-/* Palm Springs */
-#icon13 {
-    top: 54%;
-    left: 63%;
-}
-/* Airport */
-#icon14 {
-    top: 37%;
-    left: 53%;
-}
-/* Saguaro */
-#icon15 {
-    top: 63%;
-    left: 88%;
-}
-/* Sequoia */
-#icon16 {
-    top: 5%; 
-    left: 17%;
-}
-/* Pool */
-#icon17 {
-    top: 70%;
-    left: 56%;
-}
-/* Visitor Center */
-#icon18 {
-    top: 29%; 
-    left: 25%;
-}
-/* Yosemite */
-#icon19 {
-    top: 6%; 
-    left: 40%;
-}
-
-/* Styles for .img-wrapper within icons */
-
-/* PW Hub */
-#icon1 .img-wrapper {
-    transform: scale(1.1); /* Ensures the wrapper fits the scaled image */
-}
-
-/* JT National Park */
-#icon2 .img-wrapper {
-    transform: scale(2.3); /* Scales the wrapper, affecting the icon image inside it */
+    position: absolute;
+    top: 13%;
+    left: 71%;
+    width: 148px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
 /* Tram */
-#icon3 .img-wrapper, #icon3 .img-wrapper {
-    transform: scale(1.8); /* Ensures the wrapper fits the scaled image */
+
+#icon3 {
+    position: absolute;
+    top: 48%;
+    left: 28%;
+    width: 95px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
 /* Dino */
-#icon4 .img-wrapper, #icon4 .img-wrapper {
-    transform: scale(1.3); /* Ensures the wrapper fits the scaled image */
+
+#icon4 {
+    position: absolute;
+    top: 62%;
+    left: 28%;
+    width: 80px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Coachella */
-#icon5 .img-wrapper, #icon5 .img-wrapper {
-    transform: scale(2.0); /* Ensures the wrapper fits the scaled image */
+/* Wheel */
+
+#icon5 {
+    position: absolute;
+    top: 73%;
+    left: 75%;
+    width: 98px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Doors */
-#icon6 .img-wrapper, #icon6 .img-wrapper {
-    transform: scale(1.2); /* Ensures the wrapper fits the scaled image */
+/* Door */
+
+#icon6 {
+    position: absolute;
+    top: 47%;
+    left: 44%;
+    width: 70px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Downtown */
-#icon7 .img-wrapper, #icon7 .img-wrapper {
-    transform: scale(1.6); /* Ensures the wrapper fits the scaled image */
+/* Shopping */
+
+#icon7 {
+    position: absolute;
+    top: 59%;
+    left: 43%;
+    width: 80px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
 /* Grand Canyon */
-#icon8 .img-wrapper, #icon8 .img-wrapper {
-    transform: scale(1.6); /* Ensures the wrapper fits the scaled image */
+
+#icon8 {
+    position: absolute;
+    top: 34%;
+    left: 82%;
+    width: 100px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Indian Canyon */
-#icon9 .img-wrapper, #icon9 .img-wrapper {
-    transform: scale(1.7); /* Ensures the wrapper fits the scaled image */
+/* indian Canyon */
+
+#icon9 {
+    position: absolute;
+    top: 72%;
+    left: 15%;
+    width: 100px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
 /* Pioneer Town */
-#icon10 .img-wrapper, #icon10 .img-wrapper {
-    transform: scale(1.4); /* Ensures the wrapper fits the scaled image */
+
+#icon10 {
+    position: absolute;
+    top: 22%;
+    left: 54%;
+    width: 80px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
 /* Botanical Garden */
-#icon11 .img-wrapper, #icon11 .img-wrapper {
-    transform: scale(1.9); /* Ensures the wrapper fits the scaled image */
+
+#icon11 {
+    position: absolute;
+    top: 77%;
+    left: 39%;
+    width: 100px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
 /* Mountain */
-#icon12 .img-wrapper, #icon12 .img-wrapper {
-    transform: scale(2.2); /* Ensures the wrapper fits the scaled image */
+
+#icon12 {
+    position: absolute;
+    top: 55%;
+    left: 13%;
+    width: 116px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
 /* Palm Springs */
-#icon13 .img-wrapper, #icon13 .img-wrapper {
-    transform: scale(2.9); /* Ensures the wrapper fits the scaled image */
+
+#icon13 {
+    position: absolute;
+    top: 55%;
+    left: 65%;
+    width: 140px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
 /* Airport */
-#icon14 .img-wrapper, #icon14 .img-wrapper {
-    transform: scale(1.3); /* Ensures the wrapper fits the scaled image */
+
+#icon14 {
+    position: absolute;
+    top: 41%;
+    left: 56%;
+    width: 80px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Saguaro */
-#icon15 .img-wrapper, #icon15 .img-wrapper {
-    transform: scale(1.2); /* Ensures the wrapper fits the scaled image */
+/* saguaro */
+
+#icon15 {
+    position: absolute;
+    top: 63%;
+    left: 89%;
+    width: 75px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Sequoia */
-#icon16 .img-wrapper, #icon16 .img-wrapper {
-    transform: scale(1.0); /* Ensures the wrapper fits the scaled image */
+/* sequoia */
+
+#icon16 {
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    width: 80px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Pool */
-#icon17 .img-wrapper, #icon17 .img-wrapper {
-    transform: scale(1.6); /* Ensures the wrapper fits the scaled image */
+/* pool */
+
+#icon17 {
+    position: absolute;
+    top: 71%;
+    left: 59%;
+    width: 80px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Visitor Center */
-#icon18 .img-wrapper, #icon18 .img-wrapper {
-    transform: scale(1.7); /* Ensures the wrapper fits the scaled image */
+/* visitor center */
+
+#icon18 {
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 90px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Yosemite */
-#icon19 .img-wrapper, #icon19 .img-wrapper {
-    transform: scale(1.7); /* Ensures the wrapper fits the scaled image */
+/* yosemite */
+
+#icon19 {
+    position: absolute;
+    top: 12%;
+    left: 42%;
+    width: 90px;
+    height: auto;
+    transform: translate(-50%, -50%);
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-    .icon img {
-        width: 50px; /* Consistent adjustment for better fit on smaller screens */
-    }
-
-    .tooltip {
-        /* Remove width adjustment to keep the tooltip at 200px width */
-        font-size: 14px; /* Consistently increase font size for better readability */
-        /* Keep positioning and padding styles unchanged */
-    }
-
-    .tooltip img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 10px;
+@media (max-width: 768px) {
+    @media (max-width: 768px) {
+        #icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9, #icon10, #icon11, #icon12, #icon13, #icon14, #icon15, #icon16, #icon17, #icon18, #icon19 {
+            width: 60px; /* Smaller size on smaller screens */
+            height: 60px;
+            /* Optionally, adjust top and left values for responsive positioning */
+        }
+    /* Additional responsive adjustments as needed */
     }
 }
