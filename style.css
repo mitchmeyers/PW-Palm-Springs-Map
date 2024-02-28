@@ -324,13 +324,3 @@ body, html {
     transform: translate(-50%, -50%);
 }
 
-@media (max-width: 768px) {
-    @media (max-width: 768px) {
-        #icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9, #icon10, #icon11, #icon12, #icon13, #icon14, #icon15, #icon16, #icon17, #icon18, #icon19 {
-            width: 12%; /* Smaller size on smaller screens */
-            height: auto;
-            /* Optionally, adjust top and left values for responsive positioning */
-        }
-    /* Additional responsive adjustments as needed */
-    }
-}
