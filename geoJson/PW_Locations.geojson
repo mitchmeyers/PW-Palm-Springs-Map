@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "State": "Washington", "Title": "PacWesty", "Lat/Lon": "47.6780478515127, -122.545256657082", "Latitude": 47.678047851512702, "Longitude": -122.54525665708201, "Description": "Bainbridge Island", "imageUrl": null, "Google": null }, "geometry": { "type": "Point", "coordinates": [ -122.545256657082007, 47.678047851512702 ] } },
+{ "type": "Feature", "properties": { "State": "California", "Title": "PacWesty", "Lat/Lon": "33.8604138499892, -116.544745821611", "Latitude": 33.8604138499892, "Longitude": -116.544745821611, "Description": "Palm Springs", "imageUrl": null, "Google": null }, "geometry": { "type": "Point", "coordinates": [ -116.544745821611002, 33.8604138499892 ] } }
+]
+}

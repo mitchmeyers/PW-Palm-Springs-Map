@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Mapbox Map</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: none;
+        }
+        #main-container {
+            position: relative;
+            height: calc(100vh - 40px);
+            width: calc(100% - 40px);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        #map-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        /* Existing styles for info-container */
+#info-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 430px; /* Fixed width for larger screens */
+    background: #f7f6ec;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#info-container.open {
+    transform: translateX(0%); /* Shown */
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    #info-container {
+        width: 100%; /* Make the container fill the screen on smaller devices */
+        right: 0; /* Ensure it sticks to the right edge */
+        transform: translateY(100%); /* Adjust if you want it to slide in from the bottom */
+    }
+    #info-container.open {
+        transform: translateY(0%); /* Adjusted for sliding in from the bottom */
+    }
+}
+        #info-container.open {
+            transform: translateX(0%);
+        }
+        #description-container {
+            flex: 0.65;
+            background: none;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            overflow: hidden;
+        }
+        
+@font-face {
+    font-family: 'SignPainter';
+    src: url('./fonts/signpainter_housescript.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+.title-signpainter {
+    font-family: 'SignPainter', 'Open Sans', sans-serif;
+    font-size: 35px; /* Adjust font-size as needed */
+}
+@font-face {
+    font-family: 'Lulo';
+    src: url('/fonts/LuloOne-webfont.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+.title-lulo {
+    font-family: 'Lulo', 'Open Sans', sans-serif;
+    font-size: 35px; /* Adjust font-size as needed */
+}
+
+@media (max-width: 480px) {
+    .button-lulo {
+        min-width: 100px; /* Adjust width for small screens */
+        margin-right: 2px; /* Reduce margin */
+    }
+}
+.button-lulo {
+    font-family: 'Lulo', sans-serif;
+}
+.open-sans {
+    font-family: 'Open Sans', sans-serif;
+}
+    </style>
+</head>
+<body>
+    <div id="main-container">
+        <div id="map-container"></div>
+        <div id="info-container">
+            <div id="image-container"></div>
+            <div id="description-container"></div>
+        </div>
+    </div>
+    <script src="/script.js"></script> <!-- Ensure this path is correct -->
+</body>
+</html>
+
